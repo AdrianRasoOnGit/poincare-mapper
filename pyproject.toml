@@ -1,0 +1,15 @@
+[project]
+name = "poincare-mapper"
+version = "0.1.0"
+description = "Poincare section mapper for continuous dynamical systems"
+requires-python = ">=3.11"
+
+dependencies = [
+"numpy",
+"scipy",
+"matplotlib",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

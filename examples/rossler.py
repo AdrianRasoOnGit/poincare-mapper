@@ -30,7 +30,7 @@ x = crossings[:, 0]
 z = crossings[:, 2]
 
 plt.figure(figsize=(8, 8))
-plt.scatter(x, z, s=2)
+plt.scatter(x, z, s=2, color="red")
 plt.title("Rössler Poincaré Section: y = 0, dy/dt > 0")
 plt.xlabel("x")
 plt.ylabel("z")

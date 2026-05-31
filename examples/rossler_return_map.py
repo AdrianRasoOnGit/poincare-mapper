@@ -29,7 +29,7 @@ if len(crossings) < 2:
 x = crossings[:, 0]
 
 plt.figure(figsize=(8, 8))
-plt.scatter(x[:-1], x[1:], s=2)
+plt.scatter(x[:-1], x[1:], s=2, color="red")
 plt.title("Rössler First Return Map")
 plt.xlabel(r"$x_n$")
 plt.ylabel(r"$x_{n+1}$")

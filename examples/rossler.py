@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 
 from poincare_mapper.attractors import roessler
+from poincare_mapper.geometry import project_to_plane
 from poincare_mapper.mapper import PoincareMapper
-from poincare_mapper.sections import plane_section
 from poincare_mapper.plotting import save_figure
+from poincare_mapper.sections import plane_section
 
 section = plane_section(
     normal=[0, 1, 0],
@@ -26,13 +27,18 @@ print("crossings:", crossings.shape)
 if len(crossings) == 0:
     raise RuntimeError("No crossings found.")
 
-x = crossings[:, 0]
-z = crossings[:, 2]
+projected = project_to_plane(crossings, section.normal)
 
 plt.figure(figsize=(8, 8))
-plt.scatter(x, z, s=2, color="red")
-plt.title("Rössler Poincaré Section: y = 0, dy/dt > 0")
-plt.xlabel("x")
-plt.ylabel("z")
+plt.scatter(
+    projected[:, 0],
+    projected[:, 1],
+    s=2,
+    color="darkred",
+)
+
+plt.title("Rössler Poincaré Section")
+plt.xlabel("section coordinate 1")
+plt.ylabel("section coordinate 2")
 
 save_figure("rossler_section.png")
